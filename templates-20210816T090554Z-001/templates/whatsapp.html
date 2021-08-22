@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+  body
+  {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background:#F7F9F9;
+  }
+  .main
+  {
+   top: 30%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   position: absolute;
+   text-align: center;
+   background: #F0F3F4;
+   padding: 30px 80px;
+   box-shadow:5px 10px 5px #D0D3D4;
+   border-radius: 25px;
+  }
+  .main h2
+  {
+    font-family: Verdana;
+    font-size: 30px;
+  }
+  textarea
+  {
+    padding: 5px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+  }
+  .submit-btn
+  {
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding: 5px 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: #2ECC71;
+    cursor: pointer;
+    margin: 5px;
+  }
+  </style>
+</head>
+<body>
+<div class="main">
+  <h2>Send Message</h2><br>
+<form action="{% url 'whatsapp' %}" method="POST">
+  {% csrf_token %}
+<textarea name='msg' cols="40" rows="5" required></textarea><br>
+<input type="submit" class="submit-btn" value="SEND">
+</form>
+  <p>After you press the  <span style="font-weight:bold;padding:0 3px;">SEND</span>  button, automatically whatsapp will be opened in the browser and message will be sent..</p>
+</div>
+</body>
+</html>
